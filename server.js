@@ -47,22 +47,22 @@ app.post("/addCourse", (req, res) => {
     let errors = [];
     
     if(newCourse === "") {
-         errors.push("kursnamn.");
+         errors.push("kursnamn");
 
     } 
     
     if(courseCode === "") {
-        errors.push("kurskod.");
+        errors.push("kurskod");
 
     } 
     
     if(link === "") {
-        errors.push("länk till kurssidan.");
+        errors.push("länk till kurssidan");
 
     } 
 
     if(progress === "notSelected") {
-        errors.push("progression.");
+        errors.push("progression");
     }
 
     console.log(progress)

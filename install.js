@@ -27,7 +27,7 @@ connection.query("DROP TABLE IF EXISTS Courses;", (error, results) => {
 });
 connection.query(`CREATE TABLE Courses (
     PostID INT AUTO_INCREMENT PRIMARY KEY,
-    CourseName VARCHAR(40), 
+    CourseName VARCHAR(60), 
     CourseCode VARCHAR(8),
     Syllabus VARCHAR(90),
     Progression VARCHAR(1))`, (error, results) => {

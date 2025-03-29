@@ -1,1 +1,163 @@
-body {background-color: aqua;}
+/* General design */
+body { 
+    margin: 0px;
+    background-color: #f2d7d3; 
+}
+
+main { 
+    width: 80%;
+    padding: 40px 5%;
+    margin: 0px auto 0px auto;
+    background-color: #f2eee9;
+}
+
+h1 {
+    color: #e85234;
+}
+
+p, table, nav {
+    font-size: 1.1rem;
+    line-height: 1rem;
+    font-weight: 500;
+}
+
+footer {
+    margin: 0px;
+    padding: 20px;
+    background-color: #e85234;
+    color: #f2eee9;
+}
+
+/* Navigation design */ 
+
+header {
+    margin: 0px;
+    background-color: #e85234;
+}
+
+ul {
+    margin: 0px auto 0px 70px;
+    display: flex;
+    list-style-type: none;
+}
+
+ul > a {
+    padding: 40px;
+    text-decoration: none;
+    color: #f2eee9;
+}
+
+.openPage {
+    background-color: #f2eee9;
+    color: #e85234;
+}
+
+ul > a:hover {
+    background-color: #f2d7d3;
+    color: #e85234;
+}
+
+/* Index design */ 
+table {
+    width: 80%;
+}
+
+td {
+    padding: 10px 20px;
+}
+
+td > a {
+    text-decoration: none;
+}
+
+thead {
+    background-color:  #e85234;
+    color: #f2eee9;
+}
+
+tbody > tr:hover {
+    background-color: #f2d7d3;
+}
+
+tfoot {
+    background-color: #f9b8af;
+}
+
+tfoot > tr > td {
+    border-radius: 15px;
+}
+
+tfoot > tr > td > a {
+    color: #e85234;
+}
+
+/* Add courses desing */
+.errorDiv {
+    display: flex;
+}
+
+.errorDiv > p {
+    font-weight: 900;
+    color:#d11f00;
+}
+
+.errors {
+    color:#d11f00;
+    padding: 0px;
+    margin: 0px;
+}
+
+.errors > li {
+    align-content: center;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1rem;
+    font-weight: 900;
+}
+
+.errors > li:first-child:before {
+    content: none;
+}
+
+.errors > li::before {
+    content: ",";
+}
+
+.errors > li:last-child:after {
+    content: ".";
+}
+
+form {
+    width: 80%;
+}
+
+input {
+    margin: 10px 0px;
+}
+
+#course, #code, #link {
+    width: 70%;
+    padding: 5px 10px;
+    border: 1px solid #363636;
+    border-radius: 5px;
+}
+
+#progression {
+    padding: 5px 10px;
+    border: 1px solid #363636;
+    border-radius: 5px;
+}
+
+.btn {
+    display: block;
+    padding: 5px 10px;
+    background-color: #e85234;
+    color:#f2eee9;
+    font-weight: 700;
+    border: 1px solid #e85234;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #ac3b25;
+}
