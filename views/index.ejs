@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Kurser</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <a href="/"><li>Startsida</li></a>
+            <a href="/about"><li>Om webbplatsen</li></a>
+            <a href="/addCourse"><li>Lägg till kurser</li></a>
+        </ul>
+    </nav>
+    <h1>Kurser</h1>
+    <% if(locals.rows.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <td>Kurs</td>
+                    <td>Kurskod</td>
+                    <td>Progression</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% locals.rows.forEach((row) => { %>
+                    <tr>
+                        <td>
+                            <a href= <%= row.Syllabus %> >
+                                <%= row.CourseName %>
+                            </a>
+                        </td>
+                        <td>
+                            <a href= <%= row.Syllabus %> >
+                                <%= row.CourseCode %>
+                            </a>
+                        </td>
+                        <td>
+                            <a href= <%= row.Syllabus %> >
+                                <%= row.Progression %>
+                            </a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } %>
+</body>
+</html>

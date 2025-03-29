@@ -1,0 +1,1 @@
+courses (postId(pk), courseName, courseCode, syllabus, progression)
