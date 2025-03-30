@@ -17,8 +17,12 @@ h1 {
 
 p, table, nav {
     font-size: 1.1rem;
-    line-height: 1rem;
+    line-height: 1.4rem;
     font-weight: 500;
+}
+
+p {
+    max-width: 80ch;
 }
 
 footer {
@@ -160,4 +164,18 @@ input {
 
 .btn:hover {
     background-color: #ac3b25;
+}
+
+@media screen and (max-width: 900px) {
+    table { width: 100%; }
+}
+
+@media screen and (max-width: 640px) {
+    main { width: 90%; }
+}
+
+@media screen and (max-width: 460px) {
+    main { width: 100%; padding: 40px 0px; }
+    table { width: 90%; margin-left: auto; margin-right: auto; }
+    tbody > tr > td { padding: 10px 5px; }
 }
