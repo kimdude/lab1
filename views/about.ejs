@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
     <title>Om sidan</title>
+    <script src="../public/js/main.js"></script>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <button id="openBtn" class="menuBtn">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <ul id="mainMenu">
+                <button id="closeBtn" class="menuBtn">
+                    <span class="line" id="line1"></span>
+                    <span class="line" id="line2"></span>
+                </button>
                 <a href="/" ><li>Startsida</li></a>
                 <a href="/about" class="openPage"><li>Om webbplatsen</li></a>
                 <a href="/addCourse"><li>Lägg till kurser</li></a>
@@ -17,16 +27,18 @@
         </nav>
     </header>
     <main>
-        <h1>Om sidan</h1>
-        <p>
-            Webbplatsen går ut på att arbeta med serverbaserad-utveckling. Webbplatsen har skapats som node.js-projekt och använt vertkygen Express och EJS.
-            Express används för att skapa servern, medan EJS är vyhanteraren som dynamiskt skapar HTML-innehållet med data från servern. Som databas-server har MySQL använts.
-        </p>
-        <p>
-            Att arbeta med serverbaserad-webbutveckling kändes något mer komplicerat än frontend. Det är många olika verktyg som används vars funktionalitet tar ett tag att 
-            ta in och bergripa. Dessutom är filstrukturen annorlunda än den vi arbetat med tidigare, vilket kändes mindre översiktligt. Även hur man arbetar emellan filerna skiljer
-            sig väldigt mycket. Det kommer ta ett tag att riktigt förstå sig på hur det fungerar, men samtidigt är det intressant och det märks att man lär sig mycket nytt.
-        </p>
+        <section>
+            <h1>Om sidan</h1>
+            <p>
+                Webbplatsen går ut på att arbeta med serverbaserad-utveckling. Webbplatsen har skapats som node.js-projekt och använt vertkygen Express och EJS.
+                Express används för att skapa servern, medan EJS är vyhanteraren som dynamiskt skapar HTML-innehållet med data från servern. Som databas-server har MySQL använts.
+            </p>
+            <p>
+                Att arbeta med serverbaserad-webbutveckling kändes något mer komplicerat än frontend. Det är många olika verktyg som används vars funktionalitet tar ett tag att 
+                ta in och bergripa. Dessutom är filstrukturen annorlunda än den vi arbetat med tidigare, vilket kändes mindre översiktligt. Även hur man arbetar emellan filerna skiljer
+                sig väldigt mycket. Det kommer ta ett tag att riktigt förstå sig på hur det fungerar, men samtidigt är det intressant och det märks att man lär sig mycket nytt.
+            </p>
+        </section>
     </main>
     <footer>
         <p><strong>Backend-baserad webbutveckling, DT207G</strong></p>

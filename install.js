@@ -1,37 +1,36 @@
-//Fetching mysql package
-const mysql = require("mysql");
+// Fetching postgre package
+const { Client } = require("pg");
 
-//Connecting to database
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "courses"
-});
+// Fetching env-file
+require("dotenv").config();
 
-//Console logging error och connection
-connection.connect((error) => {
+// Connect to database
+const client = new Client({
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    ssl: {
+        rejectUnauthorized: false,
+    },
+})
+
+client.connect((error) => {
     if(error) {
-        console.log("Connection failed: " + error);
-        return;
+        console.log("fel vid anslutning: " + error);
+    } else {
+        console.log("Ansluten till databasen...");
     }
+})
 
-    console.log("Connected to MySQL!");
-});
-
-//Creating table
-connection.query("DROP TABLE IF EXISTS Courses;", (error, results) => {
-    if(error) throw error;
-
-    console.log("Table Courses dropped");
-});
-connection.query(`CREATE TABLE Courses (
-    PostID INT AUTO_INCREMENT PRIMARY KEY,
-    CourseName VARCHAR(60), 
-    CourseCode VARCHAR(8),
-    Syllabus VARCHAR(90),
-    Progression VARCHAR(1))`, (error, results) => {
-    if(error) throw error;
-
-    console.log("Table Courses created: " + results);
-});
+// Creating table
+client.query(`
+    DROP TABLE IF EXISTS Courses;
+    CREATE TABLE Courses (
+        PostID SERIAL PRIMARY KEY,
+        CourseName VARCHAR(60), 
+        CourseCode VARCHAR(8),
+        Syllabus VARCHAR(90),
+        Progression VARCHAR(1))
+`);

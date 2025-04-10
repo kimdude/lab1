@@ -1,18 +1,43 @@
-//Creating app
+// Fetching packages
+const { Client } = require("pg");
 const express = require("express");
-const bodyParser = require("body-parser"); //Package to read form-data
-const app = express();
-const port = 3000; //Choosing port
+require("dotenv").config();
 
+// Creating app
+const app = express();
 app.set("view engine", "ejs"); //View engine
 app.use(express.static("public"));
+
+const bodyParser = require("body-parser"); //Package to read form-data
 app.use(bodyParser.urlencoded({extended: true}));
+
+
+// Connecting to database
+const client = new Client({
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    ssl: {
+        rejectUnauthorized: false,
+    },
+})
+
+client.connect((error) => {
+    if(error) {
+        console.log("fel vid anslutning: " + error);
+    } else {
+        console.log("Ansluten till databasen...");
+    }
+})
+
 
 const courseList = [];
 
 //Create routing
-app.get("/", (req, res) => {
-    connection.query("SELECT * FROM courses;", (error, rows) => {
+app.get("/", async(req, res) => {
+    client.query("SELECT * FROM courses;", (error, rows) => {
         if(error) {
             console.error(error.message);
         }
@@ -24,11 +49,11 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/about", (req, res) => {
+app.get("/about", async(req, res) => {
     res.render("about");
 });
 
-app.get("/addCourse", (req, res) => {
+app.get("/addCourse", async(req, res) => {
     res.render("addCourse", {
         errors: [],
         newCourse: "",
@@ -38,7 +63,7 @@ app.get("/addCourse", (req, res) => {
     });
 });
 
-app.post("/addCourse", (req, res) => {
+app.post("/addCourse", async(req, res) => {
     
     let newCourse = req.body.course;
     let courseCode = req.body.code;
@@ -68,7 +93,9 @@ app.post("/addCourse", (req, res) => {
     console.log(progress)
 
     if(errors.length <= 0) {
-        connection.query("INSERT INTO courses(CourseName, CourseCode, Syllabus, Progression)VALUES(?, ?, ?, ?)", [newCourse, courseCode, link, progress], (error,results) => {
+        client.query("INSERT INTO courses(CourseName, CourseCode, Syllabus, Progression)VALUES($1, $2, $3, $4)", 
+        [newCourse, courseCode, link, progress], 
+        (error,results) => {
             if(error) throw error;
         });
 
@@ -90,27 +117,6 @@ app.post("/addCourse", (req, res) => {
 });
 
 //Starting server
-app.listen(port, () => {
-    console.log("Server started on port:" + port);
-});
-
-//Fetching mysql package
-const mysql = require("mysql");
-
-//Connecting to database
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "courses"
-});
-
-//Console logging error och connection
-connection.connect((error) => {
-    if(error) {
-        console.log("Connection failed: " + error);
-        return;
-    }
-
-    console.log("Connected to MySQL!");
+app.listen(process.env.PORT, () => {
+    console.log("Server started on port:" + process.env.PORT);
 });

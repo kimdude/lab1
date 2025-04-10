@@ -5,60 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
     <title>Kurser</title>
+    <script src="../public/js/main.js"></script>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <button id="openBtn" class="menuBtn">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <ul id="mainMenu">
+                <button id="closeBtn" class="menuBtn">
+                    <span class="line" id="line1"></span>
+                    <span class="line" id="line2"></span>
+                </button>
                 <a href="/" class="openPage"><li>Startsida</li></a>
                 <a href="/about"><li>Om webbplatsen</li></a>
                 <a href="/addCourse"><li>Lägg till kurser</li></a>
             </ul>
         </nav>
     </header>
-    <main>
-        <h1>Kurser</h1>
-        <% if(locals.rows.length > 0) { %>
-            <table>
-                <thead>
-                    <tr>
-                        <td>Kurs</td>
-                        <td>Kurskod</td>
-                        <td>Progression</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% locals.rows.forEach((row) => { %>
+    <main id="tableMain">
+        <section id="tableSection">
+            <h1>Kurser</h1>
+            <% if(locals.rows && locals.rows.length > 0) { %>
+                <table>
+                    <thead>
                         <tr>
-                            <td>
-                                <a href= <%= row.Syllabus %> >
-                                    <%= row.CourseName %>
-                                </a>
-                            </td>
-                            <td>
-                                <a href= <%= row.Syllabus %> >
-                                    <%= row.CourseCode %>
-                                </a>
-                            </td>
-                            <td>
-                                <a href= <%= row.Syllabus %> >
-                                    <%= row.Progression %>
+                            <td>Kurs</td>
+                            <td>Kurskod</td>
+                            <td>Progression</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% locals.rows.forEach((row) => { %>
+                            <tr>
+                                <td>
+                                    <a href= <%= row.Syllabus %> >
+                                        <%= row.CourseName %>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href= <%= row.Syllabus %> >
+                                        <%= row.CourseCode %>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href= <%= row.Syllabus %> >
+                                        <%= row.Progression %>
+                                    </a>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">
+                                <a href="/addCourse">
+                                    Lägg till kurs »
                                 </a>
                             </td>
                         </tr>
-                    <% }); %>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="3">
-                            <a href="/addCourse">
-                                Lägg till kurs »
-                            </a>
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-        <% } %>
+                    </tfoot>
+                </table>
+            <% } %>
+        </section>
     </main>
     <footer>
         <p><strong>Backend-baserad webbutveckling, DT207G</strong></p>

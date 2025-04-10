@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
     <title>Lägg till kurser</title>
+    <script src="../public/js/main.js"></script>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <button id="openBtn" class="menuBtn">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <ul id="mainMenu">
+                <button id="closeBtn" class="menuBtn">
+                    <span class="line" id="line1"></span>
+                    <span class="line" id="line2"></span>
+                </button>
                 <a href="/"><li>Startsida</li></a>
                 <a href="/about"><li>Om webbplatsen</li></a>
                 <a href="/addCourse" class="openPage"><li>Lägg till kurser</li></a>
@@ -17,37 +27,33 @@
         </nav>
     </header>
     <main>
-        <h1>Lägg till kurser</h1>
-        <form method="post" action="/addCourse">
-            <label for="course">Kurs:</label>
-            <input type="text" placeholder="Webbutveckling I" id="course" name="course" value="<%= newCourse %>">
-            <br>
-            <label for="code">Kurskod:</label>
-            <input type="text" placeholder="DT057G" id="code" name="code" value="<%= courseCode %>">
-            <br>
-            <label for="link">Kurssida:</label>
-            <input type="url" placeholder="www.miun/webbutveckling.se" id="link" name="link" value="<%= link %>">
-            <br>
-            <label for="progression">Progression:</label>
-            <select id="progression" name="progression">
-                <option value="notSelected" <% if(progress === "notSelected") { %> selected = "selected" <% } %> hidden >Välj</option>
-                <option value="A" <% if(progress === "A") { %> selected = "selected" <% } %> >A</option>
-                <option value="B" <% if(progress === "B") { %> selected = "selected" <% } %> >B</option>
-            </select>
-            <% if(locals.errors.length > 0) { %>
-                <div class="errorDiv">
-                    <p>Ange: </p>
-                    <ul class="errors">
-                    <% errors.forEach((error) => { %>
-                        <li>
-                            <%= error %>
-                        </li>
-                    <% }); %>
-                    </ul>
-                </div>
-            <% } %>
-            <input type="submit" value="Lägg till  kurs" class="btn">
-        </form>
+        <section>
+            <h1>Lägg till kurser</h1>
+            <form method="post" action="/addCourse">
+                <label for="course">Kurs:</label>
+                <input type="text" placeholder="Webbutveckling I" id="course" name="course" value="<%= newCourse %>">
+                <br>
+                <label for="code">Kurskod:</label>
+                <input type="text" placeholder="DT057G" id="code" name="code" value="<%= courseCode %>">
+                <br>
+                <label for="link">Kurssida:</label>
+                <input type="url" placeholder="www.miun/webbutveckling.se" id="link" name="link" value="<%= link %>">
+                <br>
+                <label for="progression">Progression:</label>
+                <select id="progression" name="progression">
+                    <option value="notSelected" <% if(progress === "notSelected") { %> selected = "selected" <% } %> hidden >Välj</option>
+                    <option value="A" <% if(progress === "A") { %> selected = "selected" <% } %> >A</option>
+                    <option value="B" <% if(progress === "B") { %> selected = "selected" <% } %> >B</option>
+                </select>
+                <% if(locals.errors.length > 0) { %>
+                    <% let errorString = errors.toString(); %>
+                    <div class="errorDiv">
+                        <p> Ange: <%=errorString %>. </p>
+                    </div>
+                <% } %>
+                <input type="submit" value="Lägg till  kurs" class="btn">
+            </form>
+        </section>
     </main>
     <footer>
         <p><strong>Backend-baserad webbutveckling, DT207G</strong></p>
