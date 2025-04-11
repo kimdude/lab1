@@ -40,7 +40,6 @@ footer {
 }
 
 /* Navigation design */ 
-
 header {
     margin: 0px;
     height: 100px;
@@ -145,7 +144,7 @@ tfoot > tr > td > a {
     color: #e85234;
 }
 
-/* Add courses desing */
+/* Add courses-page design */
 .errorDiv {
     display: flex;
 }
@@ -191,10 +190,12 @@ input {
     background-color: #ac3b25;
 }
 
+/* Screens under 900px design */
 @media screen and (max-width: 900px) {
     table { width: 100%; }
 }
 
+/* Screens under 640px design */
 @media screen and (max-width: 640px) {
     nav > ul { display: none; z-index: 5; flex-direction: column; margin-top: 290px; margin-left: auto; margin-right: 0px; padding: 40px 20px; background-color:#f9b8af; box-shadow: 0px 0px 15px rgba(0,0,0,0.3) }
     #mainMenu > a { color:#e85234; }
@@ -205,6 +206,7 @@ input {
     #tableSection > h1 { width: 80%;}
 }
 
+/* Screens under 460px design */
 @media screen and (max-width: 460px) {
     #tableMain { padding: 40px 0px; width: 100%; }
     table { width: 90%; }

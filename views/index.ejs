@@ -7,9 +7,13 @@
     <title>Kurser</title>
     <script src="/js/main.js" defer></script>
 </head>
+<!-- Body-->
 <body>
+    <!-- Header -->
     <header>
+        <!-- Navigation -->
         <nav>
+            <!-- Nav-buttons -->
             <button id="openBtn" class="menuBtn">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -20,13 +24,16 @@
                     <span class="line" id="line1"></span>
                     <span class="line" id="line2"></span>
                 </button>
+                <!-- Navoptions -->
                 <a href="/" class="openPage"><li>Startsida</li></a>
                 <a href="/about"><li>Om webbplatsen</li></a>
                 <a href="/addCourse"><li>Lägg till kurser</li></a>
             </ul>
         </nav>
     </header>
+    <!-- Main -->
     <main id="tableMain">
+        <!-- Section with table of courses -->
         <section id="tableSection">
             <h1>Kurser</h1>
             <% if(locals.rows && locals.rows.length > 0) { %>
@@ -59,6 +66,7 @@
                             </tr>
                         <% }); %>
                     </tbody>
+                    <!-- Tfoot with button to add courses -->
                     <tfoot>
                         <tr>
                             <td colspan="3">
@@ -72,6 +80,7 @@
             <% } %>
         </section>
     </main>
+    <!-- Footer -->
     <footer>
         <p><strong>Backend-baserad webbutveckling, DT207G</strong></p>
         <p>Kim Dudenhöfer</p>

@@ -7,9 +7,13 @@
     <title>Lägg till kurser</title>
     <script src="/js/main.js" defer></script>
 </head>
+<!-- Body -->
 <body>
+    <!-- Header -->
     <header>
+        <!-- Navigation -->
         <nav>
+            <!-- Nav-buttons -->
             <button id="openBtn" class="menuBtn">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -20,13 +24,16 @@
                     <span class="line" id="line1"></span>
                     <span class="line" id="line2"></span>
                 </button>
+                <!-- Nav-options -->
                 <a href="/"><li>Startsida</li></a>
                 <a href="/about"><li>Om webbplatsen</li></a>
                 <a href="/addCourse" class="openPage"><li>Lägg till kurser</li></a>
             </ul>
         </nav>
     </header>
+    <!-- Main -->
     <main>
+        <!-- Section with form to add course -->
         <section>
             <h1>Lägg till kurser</h1>
             <form method="post" action="/addCourse">
@@ -45,6 +52,7 @@
                     <option value="A" <% if(progress === "A") { %> selected = "selected" <% } %> >A</option>
                     <option value="B" <% if(progress === "B") { %> selected = "selected" <% } %> >B</option>
                 </select>
+                <!-- Controll that all fields are filled in -->
                 <% if(locals.errors.length > 0) { %>
                     <% let errorString = errors.toString(); %>
                     <div class="errorDiv">
@@ -55,6 +63,7 @@
             </form>
         </section>
     </main>
+    <!-- Footer -->
     <footer>
         <p><strong>Backend-baserad webbutveckling, DT207G</strong></p>
         <p>Kim Dudenhöfer</p>

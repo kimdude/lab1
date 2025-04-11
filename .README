@@ -1,0 +1,16 @@
+# DT207G - Lab 1
+## Serverbaserad webbutveckling
+
+En webbapplikation som lagrar kurser i en databas och läser ut de i en tabell.
+
+* Ett er-diagram över databasen har skapats.
+* Databasen skapades i PostgreSQL och hostas på Render.
+
+Webbapplikationen har skapats i ett nodejs-projekt med paketen:
+- Dotenv för konfigurationsfilen .env
+- Pg för att ansluta till Postgre-databasen
+- Express för att skapa webbapplikationen
+- Ejs för vyhantering
+- Nodemon för att starta om servern vid uppdateringar under arbetet
+
+Index-filen visar alla kurser från databasen. Under 'Lägg till kurser' kan användare lägga till egna kurser och skickas sedan tillbaka till index-sidan, där de ser den uppdaterade kurslistan.

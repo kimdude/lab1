@@ -24,7 +24,7 @@ client.connect((error) => {
     }
 })
 
-// Creating table
+// Creating table with sql
 client.query(`
     DROP TABLE IF EXISTS Courses;
     CREATE TABLE Courses (

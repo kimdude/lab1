@@ -7,9 +7,13 @@
     <title>Om sidan</title>
     <script src="/js/main.js" defer></script>
 </head>
+<!-- Body -->
 <body>
+    <!-- Header -->
     <header>
+        <!-- Navigation -->
         <nav>
+            <!-- Nav-buttons -->
             <button id="openBtn" class="menuBtn">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -20,26 +24,31 @@
                     <span class="line" id="line1"></span>
                     <span class="line" id="line2"></span>
                 </button>
+                <!-- Nav-options -->
                 <a href="/" ><li>Startsida</li></a>
                 <a href="/about" class="openPage"><li>Om webbplatsen</li></a>
                 <a href="/addCourse"><li>Lägg till kurser</li></a>
             </ul>
         </nav>
     </header>
+    <!-- Main -->
     <main>
+        <!-- Section about laboration -->
         <section>
             <h1>Om sidan</h1>
             <p>
                 Webbplatsen går ut på att arbeta med serverbaserad-utveckling. Webbplatsen har skapats som node.js-projekt och använt vertkygen Express och EJS.
-                Express används för att skapa servern, medan EJS är vyhanteraren som dynamiskt skapar HTML-innehållet med data från servern. Som databas-server har MySQL använts.
+                Express används för att skapa servern, medan EJS är vyhanteraren som dynamiskt skapar HTML-innehållet med data från servern. För databasen använde jag först MySQL, men hade svårt
+                att hitta en bra tjänst att publicera på. Därför ändrade jag till PostgreSQL och publicerade via Render.
             </p>
             <p>
                 Att arbeta med serverbaserad-webbutveckling kändes något mer komplicerat än frontend. Det är många olika verktyg som används vars funktionalitet tar ett tag att 
-                ta in och bergripa. Dessutom är filstrukturen annorlunda än den vi arbetat med tidigare, vilket kändes mindre översiktligt. Även hur man arbetar emellan filerna skiljer
+                ta in och begripa. Dessutom är filstrukturen annorlunda än den vi arbetat med tidigare, vilket kändes mindre översiktligt. Även hur man arbetar emellan filerna skiljer
                 sig väldigt mycket. Det kommer ta ett tag att riktigt förstå sig på hur det fungerar, men samtidigt är det intressant och det märks att man lär sig mycket nytt.
             </p>
         </section>
     </main>
+    <!-- Footer -->
     <footer>
         <p><strong>Backend-baserad webbutveckling, DT207G</strong></p>
         <p>Kim Dudenhöfer</p>
