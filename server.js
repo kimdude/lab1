@@ -37,14 +37,14 @@ const courseList = [];
 
 //Create routing
 app.get("/", async(req, res) => {
-    client.query("SELECT * FROM courses;", (error, rows) => {
+    client.query("SELECT * FROM courses;", (error, result) => {
         if(error) {
             console.error(error.message);
         }
 
         res.render("index", {
             error: "",
-            rows: rows
+            rows: result.rows
         });
     });
 });
@@ -89,8 +89,6 @@ app.post("/addCourse", async(req, res) => {
     if(progress === "notSelected") {
         errors.push("progression");
     }
-
-    console.log(progress)
 
     if(errors.length <= 0) {
         client.query("INSERT INTO courses(CourseName, CourseCode, Syllabus, Progression)VALUES($1, $2, $3, $4)", 

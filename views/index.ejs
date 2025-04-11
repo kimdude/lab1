@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
     <title>Kurser</title>
-    <script src="../public/js/main.js"></script>
+    <script src="/js/main.js" defer></script>
 </head>
 <body>
     <header>
@@ -42,18 +42,18 @@
                         <% locals.rows.forEach((row) => { %>
                             <tr>
                                 <td>
-                                    <a href= <%= row.Syllabus %> >
-                                        <%= row.CourseName %>
+                                    <a href= <%= row.syllabus %> >
+                                        <%= row.coursename %>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href= <%= row.Syllabus %> >
-                                        <%= row.CourseCode %>
+                                    <a href= <%= row.syllabus %> >
+                                        <%= row.coursecode %>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href= <%= row.Syllabus %> >
-                                        <%= row.Progression %>
+                                    <a href= <%= row.syllabus %> >
+                                        <%= row.progression %>
                                     </a>
                                 </td>
                             </tr>
